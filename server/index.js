@@ -4,12 +4,16 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messages");
 const app = express();
+const { MongoClient } = require("mongodb");
+
 const socket = require("socket.io");
 require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+
 const uri = "mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/?retryWrites=true&w=majority&appName=cluster0";
+const client = new MongoClient(uri);
 
 
 // connecting database
