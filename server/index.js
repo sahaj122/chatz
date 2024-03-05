@@ -25,7 +25,7 @@ const client = new MongoClient(uri);
 // app.use("/api/messages", messageRoutes);
 
 mongoose
-  .connect(`"mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/?retryWrites=true&w=majority&appName=cluster0"`, {
+  .connect(`"mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/gettingStarted?retryWrites=true&w=majority&appName=cluster0"`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
