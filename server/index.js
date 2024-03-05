@@ -10,9 +10,11 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
+// connecting database
+// mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/${process.env.DB_NAME}`, {
 
 // connecting database
-mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@@cluster0.kfwmszy.mongodb.net/${process.env.DB_NAME}`, {
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/${process.env.DB_NAME}`, {
     useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => console.log('Database Connected'))
     .catch((err) => console.log(err))
