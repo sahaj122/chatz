@@ -37,12 +37,20 @@ app.use("/api/messages", messageRoutes);
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
-const io = socket(server, {
+
+const io = new socket(server, {
   cors: {
-    origin: "https://chatz-seven.vercel.app",
-    credentials: true,
-  },
-});
+      origin: `${process.env.CLIENT_URL}`,
+      methods: ['GET', 'POST']
+  }
+})
+
+// const io = socket(server, {
+//   cors: {
+//     origin: "https://chatz-seven.vercel.app",
+//     credentials: true,
+//   },
+// });
 
 global.onlineUsers = new Map();
 io.on("connection", (socket) => {
