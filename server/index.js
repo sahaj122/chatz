@@ -12,17 +12,6 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
-const uri = "mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/?retryWrites=true&w=majority&appName=cluster0";
-const client = new MongoClient(uri);
-
-
-// connecting database
-// mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/${process.env.DB_NAME}`, {
-//     useUnifiedTopology: true, useNewUrlParser: true })
-//     .then(() => console.log('Database Connected'))
-//     .catch((err) => console.log(err))
-// app.use("/api/auth", authRoutes);
-// app.use("/api/messages", messageRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -45,7 +34,7 @@ const server = app.listen(process.env.PORT, () =>
 
 // const io = new socket(server, {
 //   cors: {
-//       origin: `${process.env.CLIENT_URL}`,
+//       origin: `${process.env.CORS_ORIGIN}`,
 //       methods: ['GET', 'POST']
 //   }
 // })
