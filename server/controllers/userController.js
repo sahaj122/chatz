@@ -6,7 +6,6 @@ module.exports.login = async (req, res, next) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
 
-    
     if (!user)
       return res.json({ msg: "Incorrect Username or Password", status: false });
     

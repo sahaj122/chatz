@@ -25,7 +25,7 @@ const client = new MongoClient(uri);
 // app.use("/api/messages", messageRoutes);
 
 mongoose
-  .connect(`"mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kfwmszy.mongodb.net/gettingStarted?retryWrites=true&w=majority&appName=cluster0"`, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -52,7 +52,7 @@ const server = app.listen(process.env.PORT, () =>
 
 const io = socket(server, {
   cors: {
-    origin: "https://chatz-seven.vercel.app",
+    origin: "http://localhost:3000",
     credentials: true,
   },
 });
