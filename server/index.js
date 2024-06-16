@@ -25,6 +25,10 @@ mongoose
     console.log(err.message);
   });
 
+  app.get("/", (req,res)=>{
+    res.send("Hello")
+  })
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 const PORT = process.env.PORT || 5000;
