@@ -36,7 +36,7 @@ const server = app.listen(PORT, () =>
 
 app.get("/", (req,res)=>{
   console.log(`Server started on ${process.env.PORT}`)
-  res.send("Hello")
+  res.send("Hello, Server started on ${process.env.PORT}")
 })
 
 // const io = new socket(server, {
